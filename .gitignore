@@ -1,3 +1,11 @@
 # Environment
 .env
 __pycache__/
+
+# Temp files
+changes.txt
+config.json
+infractions.json
+logs.txt
+messages.txt
+reminders.json
