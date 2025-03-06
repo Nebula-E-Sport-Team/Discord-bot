@@ -1,3 +1,4 @@
+import os
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -227,7 +228,7 @@ class Help(commands.Cog):
 
     async def cog_load(self):
         try:
-            guild_id = int(os.getenv('GUILD_ID'))
+            guild_id = int(os.getenv("DISCORD_GUILD_ID"))
             self.bot.tree.copy_global_to(guild=discord.Object(id=guild_id))
             await self.bot.tree.sync(guild=discord.Object(id=guild_id))
             print("Commandes help synchronisées")
