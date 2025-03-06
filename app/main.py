@@ -29,7 +29,8 @@ class CustomBot(commands.Bot):
     async def setup_hook(self):
         print("Début de la configuration...")
         # Charger les cogs
-        for cog in os.listdir("./cogs"):
+        print()
+        for cog in os.listdir("/home/app/cogs"):
             if cog.endswith(".py"):
                 try:
                     await self.load_extension(f"cogs.{cog[:-3]}")
@@ -183,4 +184,4 @@ async def on_ready():
     print(f"https://discord.com/api/oauth2/authorize?client_id={bot.application_id}&permissions=8&scope=bot%20applications.commands")
     print("="*50)
 
-bot.run(os.getenv('DISCORD_TOKEN')) 
+bot.run(str(os.getenv('DISCORD_TOKEN'))) 
