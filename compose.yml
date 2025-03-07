@@ -6,13 +6,14 @@ services:
       dockerfile_inline: |
         FROM python:3.11.4-alpine3.18
         WORKDIR /home
+        COPY ./requirements.txt /home/requirements.txt
         RUN pip install -r /home/requirements.txt
+
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
     env_file:
       - .env
     volumes:
-      - ./requirements.txt:/home/requirements.txt
       - ./app:/home/app
     command: python app/main.py
